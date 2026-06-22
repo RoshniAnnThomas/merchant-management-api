@@ -5,6 +5,7 @@ const connectDB = require('./src/config/db');
 const authRoutes = require('./src/routes/authRoutes');
 const categoryRoutes = require('./src/routes/categoryRoutes');
 const merchantRoutes = require('./src/routes/merchantRoutes');
+const errorHandler = require('./src/middleware/errorMiddleware');
 
 dotenv.config();
 
@@ -26,6 +27,8 @@ app.get('/', (req, res) => {
     message: 'Merchant Management API is running'
   });
 });
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 

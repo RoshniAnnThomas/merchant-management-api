@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./src/config/db');
 const authRoutes = require('./src/routes/authRoutes');
 const categoryRoutes = require('./src/routes/categoryRoutes');
+const merchantRoutes = require('./src/routes/merchantRoutes');
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/merchants', merchantRoutes);
 
 app.get('/', (req, res) => {
   res.status(200).json({
